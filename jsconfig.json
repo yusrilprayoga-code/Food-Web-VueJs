@@ -15,5 +15,12 @@
       "dom.iterable",
       "scripthost"
     ]
-  }
+  },
+    "vue/multi-word-component-names": ["error", {
+      "ignores": [
+      ]
+    }],
+    "vue/no-unused-components": ["error", {
+      "ignoreWhenBindingPresent": true
+    }]
 }
