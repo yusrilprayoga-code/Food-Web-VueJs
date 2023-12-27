@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ category.strCategory }}</h5>
                             <p class="card-text">{{ category.strCategoryDescription.substring(0, 100) }}...</p>
-                            <router-link :to="'/category/' + category.strCategory" class="btn btn-primary">
+                            <router-link :to="'/category/' + category.strCategory" class="btn btn-success">
                                 View Category
                             </router-link>
                         </div>
