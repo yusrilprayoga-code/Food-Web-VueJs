@@ -9,7 +9,7 @@
             <div class="justify-content-center align-self-center">
               <h1 class="fw-bold">Makanan Khas Indonesia</h1>
               <p class="lead">Temukan makanan khas Indonesia yang terbaik</p>
-              <router-link to="/foods" class="btn btn-success">
+              <router-link to="/" class="btn btn-success">
                 Pesan Sekarang
                 <b-icon-arrow-right-circle></b-icon-arrow-right-circle>
               </router-link>
@@ -32,7 +32,7 @@
             <div class="justify-content-center align-self-center">
               <h1 class="fw-bold">Makanan Khas Indonesia</h1>
               <p class="lead">Temukan makanan khas Indonesia yang terbaik</p>
-              <router-link to="/foods" class="btn btn-success">
+              <router-link to="/" class="btn btn-success">
                 Pesan Sekarang
                 <b-icon-arrow-right-circle></b-icon-arrow-right-circle>
               </router-link>
