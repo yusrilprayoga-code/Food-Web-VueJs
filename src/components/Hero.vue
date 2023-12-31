@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <!-- dekstop -->
     <div class="hero container mt-4 d-md-block d-none">
       <div class="row">
@@ -85,9 +84,7 @@
 
 <script>
 import axios from "axios";
-import Navbar from "./Navbar.vue";
 export default {
-  components: { Navbar },
   data() {
     return {
       categories: [],

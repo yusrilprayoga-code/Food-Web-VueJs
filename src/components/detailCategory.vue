@@ -1,8 +1,7 @@
 <template>
   <div>
-    <navbar />
     <div class="container">
-      <h3 class="mt-3">Detail Category</h3>
+      <h3 class="mt-5 mb-3 text-center">Detail Category</h3>
       <div class="row">
         <div class="col-md-4">
           <div class="input-group mb-3">
@@ -43,11 +42,9 @@
 
 <script>
 import axios from "axios";
-import Navbar from "./Navbar.vue";
 import { ref } from "vue";
 
 export default {
-  components: { Navbar },
   name: "DetailCategory",
 
   data() {
@@ -86,7 +83,6 @@ export default {
   },
 
   computed: {
-    //filtered and not found
     filteredCategory() {
       return this.category.filter((item) => {
         return item.strMeal
@@ -109,4 +105,33 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.form-control {
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
