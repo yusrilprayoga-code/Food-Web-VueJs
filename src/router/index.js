@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import Hero from "../components/Hero.vue";
 import DetailCategory from "../components/detailCategory.vue";
 import DetailFoodsCategory from "../components/detailFoods.vue"
+import KeranjangVue from "@/views/Keranjang.vue";
+import checkout from "../views/checkout.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +23,16 @@ const routes = [
     path: "/detailFoods/:idMeal",
     name: "DetailFoods",
     component: DetailFoodsCategory,
+  },
+  {
+    path: "/keranjang-belanja",
+    name: "keranjang",
+    component: KeranjangVue,
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: checkout,
   },
   {
     path: "/about",

@@ -18,10 +18,12 @@
                 </ul>
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/">
+                        <router-link class="nav-link" to="/keranjang-belanja">
                             Keranjang
                             <b-icon-bag></b-icon-bag>
-                            <span class="badge bg-success ml-2">0</span>
+                            <span class="badge bg-success ml-2">
+                                {{ keranjangLength }}
+                            </span>
                         </router-link>
                     </li>
                 </ul>
@@ -33,7 +35,53 @@
 <script>
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Navbar'
+    name: 'Navbar',
+
+    data() {
+        return {
+            keranjang: [],
+        };
+    },
+
+    computed: {
+        keranjangLength() {
+            return this.keranjang.length;
+        },
+    },
+
+    mounted() {
+        this.keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+    },
+
+    watch: {
+        keranjang() {
+            this.keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+        },
+    },
+
+    methods: {
+        hapusKeranjang(index) {
+            this.keranjang.splice(index, 1);
+            this.updateLocalStorage();
+        },
+
+        getKeranjang() {
+            this.keranjang = JSON.parse(localStorage.getItem('keranjang'));
+        },
+
+        hapusSemua() {
+            this.keranjang = [];
+            this.updateLocalStorage();
+        },
+
+        updateLocalStorage() {
+            localStorage.setItem('keranjang', JSON.stringify(this.keranjang));
+        },
+    },
+    
+    created() {
+        this.getKeranjang();
+    },
 }
 </script>
 

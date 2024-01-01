@@ -150,6 +150,7 @@ export default {
       category: {},
       newComment: "",
       comments: this.loadfromlocalstorage() || [],
+      keranjang: [],
     };
   },
 
@@ -177,8 +178,12 @@ export default {
     },
 
     addtocart() {
-      this.$store.commit("addtocart", this.category);
-    }, 
+        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+        keranjang.push(this.category);
+        localStorage.setItem("keranjang", JSON.stringify(keranjang));
+        this.keranjang = keranjang;
+        alert("Berhasil ditambahkan ke keranjang");
+    },
 
     deletAll() {
       this.comments = [];
