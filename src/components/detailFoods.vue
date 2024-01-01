@@ -20,7 +20,7 @@
           <li class="breadcrumb-item active mt-3 mb-3" aria-current="page">
             {{ category.strMeal }}
           </li>
-          <div class="row flex-md-row flex-column-reverse">
+          <div class="row flex-md-row">
             <div class="col-md-4 mb-3 mb-md-0">
               <img
                 :src="category.strMealThumb"
@@ -82,14 +82,9 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
-              <p class="text-muted">
-                <a :href="category.strSource" target="_blank">
-                  {{ category.strSource }}
-                </a>
-              </p>
 
               <!-- section comments -->
-              <div>
+              <div class="comment-section">
                 <input
                   type="text"
                   class="form-control"
@@ -252,9 +247,13 @@ export default {
 
 @media (max-width: 767.98px) {
   .flex-md-row {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
+  .comment-section {
+    order: 3;
+    margin-top: 20px;
+  }
   .img-fluid {
     width: 100%;
   }
