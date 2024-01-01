@@ -37,7 +37,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="5" class="text-left">
-                                                <h5 v-if="keranjang.length === 0">Keranjang Kosong</h5>
+                                                <h5 v-if="keranjang.length === 0" class="mt-5">Keranjang Kosong</h5>
                                                 <p v-else class="text text-success">
                                                     <b-icon-bag></b-icon-bag>
                                                     Total: {{ keranjang.length }}
@@ -82,13 +82,6 @@ export default {
         hapusKeranjang(index) {
             this.keranjang.splice(index, 1);
             localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
-            //message
-            this.$toast.add({
-                severity: "success",
-                summary: "Success Message",
-                detail: "Berhasil menghapus resep dari keranjang",
-                life: 3000,
-            });
         },
         hapusSemua() {
             this.keranjang = [];
