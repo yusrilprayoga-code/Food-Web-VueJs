@@ -188,6 +188,7 @@ export default {
     deletAll() {
       this.comments = [];
       this.savetolocalstorage();
+      alert ("Are you sure to delete all comments?");
     },
 
     addComment() {
