@@ -36,7 +36,6 @@
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'Navbar',
-
     data() {
         return {
             keranjang: [],
@@ -49,36 +48,15 @@ export default {
         },
     },
 
-    mounted() {
-        this.keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
-    },
-
-    watch: {
-        keranjang() {
-            this.keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
-        },
-    },
-
     methods: {
-        hapusKeranjang(index) {
-            this.keranjang.splice(index, 1);
-            this.updateLocalStorage();
-        },
-
         getKeranjang() {
-            this.keranjang = JSON.parse(localStorage.getItem('keranjang'));
-        },
-
-        hapusSemua() {
-            this.keranjang = [];
-            this.updateLocalStorage();
-        },
-
-        updateLocalStorage() {
-            localStorage.setItem('keranjang', JSON.stringify(this.keranjang));
+            const keranjang = localStorage.getItem('keranjang');
+            if (keranjang) {
+                this.keranjang = JSON.parse(keranjang);
+            }
         },
     },
-    
+
     created() {
         this.getKeranjang();
     },
