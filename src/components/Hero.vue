@@ -46,7 +46,11 @@
           <h2 class="fw-bold">Best Categories Foods</h2>
         </div>
       </div>
-      <div class="row">
+      <div v-if="loading" class="loading text-center align-items-center justify-content-center">
+        <b-spinner></b-spinner>
+      </div>
+      <div v-if="error" class="error">{{ error }}</div>
+      <div class="row" v-if="fetchdata">
         <div
           v-for="category in categories"
           :key="category.idCategory"
@@ -88,22 +92,41 @@ export default {
   data() {
     return {
       categories: [],
+      loading: true,
+      error: null,
     };
   },
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Hero",
 
   mounted() {
-    axios
-      .get("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then((response) => (this.categories = response.data.categories))
-      .catch((error) => console.log(error));
+    this.fetchData();
   },
 
   methods: {
+
+    async fetchData() {
+      try {
+        const response = await axios.get(
+          "https://www.themealdb.com/api/json/v1/1/categories.php"
+        );
+        this.categories = response.data.categories;
+      } catch (error) {
+        this.error = error.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
     // eslint-disable-next-line vue/no-unused-components
     viewCategory(strCategory) {
       this.$router.push({ name: "category", params: { strCategory } });
+    },
+  },
+
+  computed: {
+    fetchdata() {
+      return this.categories;
     },
   },
 };

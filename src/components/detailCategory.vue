@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <h3 class="mt-5 mb-3 text-center">Detail Category</h3>
-      <div class="row">
+      <div class="row" v-if="fetchData">
         <div class="col-md-4">
           <div class="input-group mb-3">
             <input
@@ -16,6 +16,10 @@
           </div>
         </div>
       </div>
+      <div v-if="loading" class="loading text-center align-items-center justify-content-center">
+        <b-spinner></b-spinner>
+      </div>
+      <div v-if="error" class="error">{{ error }}</div>
       <div class="row">
         <div class="col-md-4" v-for="item in filteredCategory" :key="item.idMeal">
           <div class="card mb-3">
@@ -51,6 +55,8 @@ export default {
     return {
       category: [],
       searchQuery: "",
+      loading: true,
+      error: null,
     };
   },
 
@@ -65,8 +71,11 @@ export default {
           `https://www.themealdb.com/api/json/v1/1/filter.php?c=${this.$route.params.strCategory}`
         );
         this.category = response.data.meals;
+        this.loading = false;
       } catch (error) {
         console.log(error);
+        this.error = error.message;
+        this.loading = false;
       }
     },
 
