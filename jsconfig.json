@@ -22,5 +22,6 @@
     }],
     "vue/no-unused-components": ["error", {
       "ignoreWhenBindingPresent": true
-    }]
+    }],
+    "vue/require-v-for-key": ["error"],
 }

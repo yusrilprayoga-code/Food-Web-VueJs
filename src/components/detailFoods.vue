@@ -87,6 +87,55 @@
                   {{ category.strSource }}
                 </a>
               </p>
+
+              <!-- section comments -->
+              <div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Add Comment"
+                  v-model="newComment"
+                />
+                <button class="btn btn-success mt-3" @click="addComment">
+                  Add Comment
+                </button>
+                <button class="btn btn-danger mt-3" @click="deletAll">
+                  Delete All Comment
+                </button>
+              </div>
+
+              <!-- Display Comments -->
+              <div class="addcomments mt-4">
+                <div class="row" v-for="(comment, index) in comments" :key="index">
+                  <div class="col-md-12">
+                <div class="card mt-4" >
+                  <div class="card-body">
+                    <p class="card-text">{{ comment }}</p>
+                  </div>
+                </div>
+              </div>
+                  <div class="col-md-2">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-block"
+                      v-if="comments.length > 0"
+                      @click="editComment"
+                    >
+                      Edit
+                    </button>
+                  </div>
+                  <div class="col-md-2">
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-block"
+                      @click="deleteComment(index)"
+                      v-if="comments.length > 0"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </ol>
@@ -104,6 +153,8 @@ export default {
   data() {
     return {
       category: {},
+      newComment: "",
+      comments: this.loadfromlocalstorage() || [],
     };
   },
 
@@ -132,6 +183,35 @@ export default {
 
     addtocart() {
       this.$store.commit("addtocart", this.category);
+    }, 
+
+    deletAll() {
+      this.comments = [];
+      this.savetolocalstorage();
+    },
+
+    addComment() {
+      this.comments.push(this.newComment);
+      this.newComment = "";
+      this.savetolocalstorage();
+    },
+    
+    editComment() {
+     alert ("Masih dalam tahap pengembangan");
+    },
+
+    deleteComment(index) {
+      this.comments.splice(index, 1);
+      this.savetolocalstorage();
+      alert ("Are you sure to delete this comment?");
+    },
+
+    savetolocalstorage() {
+      localStorage.setItem("comments", JSON.stringify(this.comments));
+    },
+
+    loadfromlocalstorage() {
+      return JSON.parse(localStorage.getItem("comments"));
     },
   },
 };
@@ -147,6 +227,26 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+
+.addcomments {
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 5px;
 }
 
 @media (max-width: 767.98px) {
