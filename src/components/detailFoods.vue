@@ -186,7 +186,11 @@ export default {
         this.keranjang = JSON.parse(localStorage.getItem("keranjang"));
         this.keranjang.push(this.category);
         localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
-        alert("Added to Cart");
+        this.$bvToast.toast("Berhasil Memasukkan ke keranjang", {
+                title: "Keranjang",
+                variant: "success",
+                solid: true,
+            });
         this.$router.go();
       } else {
         this.keranjang = [];
