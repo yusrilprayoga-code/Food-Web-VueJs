@@ -82,10 +82,22 @@ export default {
         hapusKeranjang(index) {
             this.keranjang.splice(index, 1);
             localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
+            this.$bvToast.toast("Berhasil Dihapus", {
+                title: "Keranjang",
+                variant: "success",
+                solid: true,
+            });
+            this.$router.go();
         },
         hapusSemua() {
             this.keranjang = [];
             localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
+            this.$bvToast.toast("Berhasil Dihapus Semua", {
+                title: "Keranjang",
+                variant: "success",
+                solid: true,
+            });
+            this.$router.go();
         },
     },
     created() {

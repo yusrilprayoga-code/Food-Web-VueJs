@@ -101,14 +101,18 @@
 
               <!-- Display Comments -->
               <div class="addcomments mt-4">
-                <div class="row" v-for="(comment, index) in comments" :key="index">
+                <div
+                  class="row"
+                  v-for="(comment, index) in comments"
+                  :key="index"
+                >
                   <div class="col-md-12">
-                <div class="card mt-4" >
-                  <div class="card-body">
-                    <p class="card-text">{{ comment }}</p>
+                    <div class="card mt-4">
+                      <div class="card-body">
+                        <p class="card-text">{{ comment }}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
                   <div class="col-md-2">
                     <button
                       type="button"
@@ -178,17 +182,25 @@ export default {
     },
 
     addtocart() {
-        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
-        keranjang.push(this.category);
-        localStorage.setItem("keranjang", JSON.stringify(keranjang));
-        this.keranjang = keranjang;
-        alert("Berhasil ditambahkan ke keranjang");
+      if (localStorage.getItem("keranjang")) {
+        this.keranjang = JSON.parse(localStorage.getItem("keranjang"));
+        this.keranjang.push(this.category);
+        localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
+        alert("Added to Cart");
+        this.$router.go();
+      } else {
+        this.keranjang = [];
+      }
     },
 
     deletAll() {
       this.comments = [];
       this.savetolocalstorage();
-      alert ("Are you sure to delete all comments?");
+      this.$bvToast.toast("Berhasil Dihapus Semua", {
+        title: "Delete Comment",
+        variant: "success",
+        solid: true,
+      });      
     },
 
     addComment() {
@@ -196,15 +208,23 @@ export default {
       this.newComment = "";
       this.savetolocalstorage();
     },
-    
+
     editComment() {
-     alert ("Masih dalam tahap pengembangan");
+      this.$bvToast.toast("Masih Dalam Tahap Pengembangan", {
+        title: "Edit Comment",
+        variant: "warning",
+        solid: true,
+      });
     },
 
     deleteComment(index) {
       this.comments.splice(index, 1);
       this.savetolocalstorage();
-      alert ("Are you sure to delete this comment?");
+      this.$bvToast.toast("Berhasil Dihapus", {
+        title: "Delete Comment",
+        variant: "success",
+        solid: true,
+      });
     },
 
     savetolocalstorage() {
