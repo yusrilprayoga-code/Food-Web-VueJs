@@ -159,14 +159,14 @@ export default {
   },
 
   async mounted() {
-    try {
-      const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.$route.params.idMeal}`
-      );
-      this.category = response.data.meals[0];
-    } catch (error) {
-      console.log(error);
-    }
+      try {
+        const response = await axios.get(
+          `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.$route.params.idMeal}`
+        );
+        this.category = response.data.meals[0];
+      } catch (error) {
+        console.log(error);
+      }
   },
 
   methods: {
