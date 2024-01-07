@@ -87,7 +87,9 @@ export default {
                 variant: "success",
                 solid: true,
             });
-            this.$router.go();
+            setTimeout(() => {
+                this.$router.go();
+            }, 1000);
         },
         hapusSemua() {
             this.keranjang = [];
@@ -97,7 +99,9 @@ export default {
                 variant: "success",
                 solid: true,
             });
-            this.$router.go();
+            setTimeout(() => {
+                this.$router.go();
+            }, 1000);
         },
     },
     created() {

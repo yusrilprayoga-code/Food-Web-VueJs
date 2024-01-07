@@ -154,7 +154,7 @@ export default {
       category: {},
       newComment: "",
       comments: this.loadfromlocalstorage() || [],
-      keranjang: [],
+      keranjang: JSON.parse(localStorage.getItem("keranjang")) || [],
     };
   },
 
@@ -181,20 +181,18 @@ export default {
       });
     },
 
-    addtocart() {
-      if (localStorage.getItem("keranjang")) {
-        this.keranjang = JSON.parse(localStorage.getItem("keranjang"));
-        this.keranjang.push(this.category);
-        localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
-        this.$bvToast.toast("Berhasil Memasukkan ke keranjang", {
-                title: "Keranjang",
-                variant: "success",
-                solid: true,
-            });
+    addtocart() { 
+      //cart localstorage
+      this.keranjang.push(this.category);
+      localStorage.setItem("keranjang", JSON.stringify(this.keranjang));
+      this.$bvToast.toast("Berhasil Ditambahkan Ke Keranjang", {
+        title: "Add to Cart",
+        variant: "success",
+        solid: true,
+      });
+      setTimeout(() => {
         this.$router.go();
-      } else {
-        this.keranjang = [];
-      }
+      }, 1000);
     },
 
     deletAll() {
