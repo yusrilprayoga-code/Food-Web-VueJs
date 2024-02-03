@@ -5,21 +5,15 @@
       <div class="row gy-2 gx-3">
         <div class="col-md-4">
           <h5 class="fw-bold">About Us</h5>
-          <p>
+          <p class="text-justify">
             Selamat datang di FoodWebs! Kami adalah tim pecinta makanan yang
             berkomitmen untuk menyajikan pengalaman kuliner yang tak terlupakan.
-            Dengan lidah yang berpetualang dan hati yang penuh kasih, kami
-            menjelajahi berbagai rasa dari seluruh penjuru dunia. Di sini, kami
-            berbagi cerita tentang keajaiban kuliner, merayakan keunikan setiap
-            hidangan, dan mengajak Anda untuk menemukan kebahagiaan melalui
-            makanan. Sambutlah petualangan kuliner bersama kami, di mana setiap
-            hidangan adalah sebuah kisah dan setiap hidangan memberikan
-            pengalaman yang tak terlupakan.
+            Dengan lidah yang berpetualang dan hati yang penuh kasih.
           </p>
         </div>
         <div class="col-md-4">
           <h5 class="fw-bold">Alamat</h5>
-          <p>
+          <p class="text-justify">
             Jl. Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Quisquam
           </p>
@@ -55,15 +49,10 @@
               </a>
             </div>
           </div>
-          <p class="mt-3">
+          <p class="mt-3 text-justify">
             Jangan lewatkan update terbaru kami! Temukan kami di berbagai
             platform media sosial untuk mendapatkan inspirasi kuliner, resep
-            eksklusif, dan cerita di balik setiap hidangan. Ikuti perjalanan
-            kuliner kami di Facebook, tersenyumlah bersama kami di Twitter,
-            nikmati tampilan visual di Instagram, jalin koneksi profesional di
-            LinkedIn, dan temukan inspirasi visual di Pinterest. Kami senang
-            bisa berbagi kegembiraan makanan dengan Anda di setiap langkah
-            perjalanan kami.
+            eksklusif, dan cerita di balik setiap hidangan.
           </p>
         </div>
       </div>
@@ -82,6 +71,6 @@ export default {
 .footer {
   margin-top: 20px;
   background-color: #dbdbdb;
-  padding: 50px 0;
+  padding: 50px;
 }
 </style>

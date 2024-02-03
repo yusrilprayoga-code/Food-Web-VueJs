@@ -21,8 +21,8 @@
       </div>
       <div v-if="error" class="error">{{ error }}</div>
       <div class="row">
-        <div class="col-md-4" v-for="item in filteredCategory" :key="item.idMeal">
-          <div class="card mb-3">
+        <div class="col-md-4 mb-3" v-for="item in filteredCategory" :key="item.idMeal">
+          <div class="card cardetail mb-3">
             <img
               :src="item.strMealThumb"
               class="card-img-top"
@@ -129,6 +129,13 @@ export default {
 .card-img-top {
   height: 200px;
   object-fit: cover;
+}
+
+.cardetail:hover {
+  border: none;
+  box-shadow: 0 0 15px rgb(19, 235, 19);
+  transition: 300ms;
+  transform: translate(0, -10px);
 }
 
 .card-title {

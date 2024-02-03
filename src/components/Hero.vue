@@ -40,10 +40,21 @@
         </div>
       </div>
     </div>
-    <div class="container mt-4">
+    <!-- Banner --> 
+    <div class="container mt-5">
+      
+    </div>
+    <!-- Best Foods -->
+    <div class="container mt-5">
       <div class="row mb-3">
         <div class="col">
           <h2 class="fw-bold">Best Categories Foods</h2>
+        </div>
+        <div class="col">
+            <router-link to="/categories" class="allcategories">
+              See All Categories
+              <b-icon-arrow-right-circle></b-icon-arrow-right-circle>
+            </router-link>
         </div>
       </div>
       <div v-if="loading" class="loading text-center align-items-center justify-content-center">
@@ -52,11 +63,11 @@
       <div v-if="error" class="error">{{ error }}</div>
       <div class="row" v-if="fetchdata">
         <div
-          v-for="category in categories"
+          v-for="category in categories < 3 ? categories : categories.slice(0, 3)"
           :key="category.idCategory"
           class="col-md-4 mb-3"
         >
-          <div class="card">
+          <div class="card shadow">
             <img
               :src="category.strCategoryThumb"
               class="card-img-top"
@@ -82,6 +93,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="container">
+      <div class="OurChannel">
+
+      </div> 
     </div>
   </div>
 </template>
@@ -132,4 +148,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.allcategories {
+  height: auto;
+  float: right;
+  text-decoration: none;
+} 
+</style>

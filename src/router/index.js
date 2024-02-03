@@ -5,6 +5,7 @@ import DetailCategory from "../components/detailCategory.vue";
 import DetailFoodsCategory from "../components/detailFoods.vue"
 import KeranjangVue from "@/views/Keranjang.vue";
 import checkout from "../views/checkout.vue";
+import Categories from "@/views/Categories.vue";
 
 Vue.use(VueRouter);
 
@@ -13,6 +14,11 @@ const routes = [
     path: "/",
     name: "home",
     component: Hero,
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: Categories
   },
   {
     path: "/detailCategory/:strCategory", 
