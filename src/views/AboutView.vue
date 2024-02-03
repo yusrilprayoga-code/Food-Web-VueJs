@@ -22,10 +22,10 @@
         </div>
       </div>
       <div class="about-content">
-        <div class="row">
+        <div class="row mb-3">
           <div class="col">
             <h2>Our Story</h2>
-            <p>
+            <p class="text-justify">
               Sejak awal perjalanan kami di dunia kuliner, FoodWebs memiliki
               kisah yang membanggakan. Dari awal yang sederhana hingga saat ini,
               kami telah tumbuh sebagai komunitas makanan yang penuh semangat.
@@ -36,7 +36,7 @@
           </div>
           <div class="col">
             <h2>Our Vision</h2>
-            <p>
+            <p class="text-justify">
               Visi kami adalah menjadi panduan utama bagi semua pencinta makanan
               yang mencari petualangan kuliner. Kami bermimpi menjadi destinasi
               terdepan untuk inspirasi makanan, resep kreatif, dan cerita-cerita
@@ -49,7 +49,7 @@
         <div class="row">
           <div class="col">
             <h2>Our Mission</h2>
-            <p>
+            <p class="text-justify">
               Kami berkomitmen untuk menciptakan pengalaman kuliner yang
               menginspirasi dan tak terlupakan. Melalui eksplorasi rasa,
               pembagian cerita, dan kegembiraan bersama, misi kami adalah
@@ -60,7 +60,7 @@
           </div>
           <div class="col">
             <h2>Our Value</h2>
-            <p>
+            <p class="text-justify">
               Di FoodWebs, kami menjunjung tinggi nilai-nilai yang membentuk
               inti identitas kami. Kejujuran, keberagaman, inovasi, dan kepuasan
               pelanggan adalah pilar utama yang mengarahkan setiap tindakan
