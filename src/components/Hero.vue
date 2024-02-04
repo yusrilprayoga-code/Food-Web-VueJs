@@ -333,7 +333,7 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <form>
+          <form @submit.prevent="email()">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input
@@ -341,6 +341,7 @@
                 class="form-control"
                 id="name"
                 aria-describedby="name"
+                v-model="name"
               />
             </div>
             <div class="mb-3">
@@ -350,6 +351,7 @@
                 class="form-control"
                 id="email"
                 aria-describedby="email"
+                v-model="emailv"
               />
             </div>
             <div class="mb-3">
@@ -358,6 +360,7 @@
                 class="form-control"
                 id="message"
                 rows="3"
+                v-model="message"
               ></textarea>
             </div>
             <button type="submit" class="btn btn-success">Send Message</button>
@@ -405,6 +408,34 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     viewCategory(strCategory) {
       this.$router.push({ name: "category", params: { strCategory } });
+    },
+
+    email() {
+      const formData = new FormData();
+      formData.append("service_id", "service_h9hf4co");
+      formData.append("template_id", "template_kv6gx9t");
+      formData.append("user_id", "FLVTZfnG-Bx5Y3q2X");
+
+      formData.append("name", this.name);
+      formData.append("emailv", this.emailv);
+      formData.append("message", this.message);
+
+      axios
+        .post("https://api.emailjs.com/api/v1.0/email/send-form", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          // Message
+          alert("Email Sent");
+        })
+        .catch((error) => {
+          console.error(error);
+          // Message
+          alert("Email Failed");
+        });
     },
   },
 
