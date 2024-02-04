@@ -341,7 +341,7 @@
                 class="form-control"
                 id="name"
                 aria-describedby="name"
-                v-model="name"
+                v-model="to_name"
               />
             </div>
             <div class="mb-3">
@@ -351,7 +351,7 @@
                 class="form-control"
                 id="email"
                 aria-describedby="email"
-                v-model="emailv"
+                v-model="from_name"
               />
             </div>
             <div class="mb-3">
@@ -416,8 +416,8 @@ export default {
       formData.append("template_id", "template_kv6gx9t");
       formData.append("user_id", "FLVTZfnG-Bx5Y3q2X");
 
-      formData.append("name", this.name);
-      formData.append("emailv", this.emailv);
+      formData.append("to_name", this.to_name);
+      formData.append("from_name", this.from_name);
       formData.append("message", this.message);
 
       axios
